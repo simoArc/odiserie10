@@ -1,12 +1,38 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title><h:outputText value="#{msg['personfilms.list.title']}" /></title>
     </h:head>
     <h:body>
-        <title><h:outputText value="#{msg['customers.list.title']}" /></title>
+        <h:form>
+
+            <h:dataTable var="customer" value="#{customersBean.customers}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['customer.number']}" />
+                    </f:facet>
+                    <h:commandLink value="#{customer.number}" action="#{customerDetailsBean.showCustomer(customer)}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['customer.firstName']}" />
+                    </f:facet>
+                    <h:commandLink  value="#{customer.firstName}" action="#{customerDetailsBean.showCustomer(customer)}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['customer.lastName']}" />
+                    </f:facet>
+                    <h:commandLink  value="#{customer.lastName}" action="#{customerDetailsBean.showCustomer(customer)}" />
+                </h:column>
+            </h:dataTable>
+
+            <br/>
+            <h:commandButton  value="#{msg['button.label.add']}" action="createCustomer" />
+        </h:form>
     </h:body>
 </html>
 
