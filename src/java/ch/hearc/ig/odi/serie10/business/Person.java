@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Person {
 
-	Map<Integer, Movie> movies;
+	Map<Long, Movie> movies;
 	private long id;
 	private String firstName;
 	private String lastName;
@@ -38,6 +38,14 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Map<Long, Movie> getMovies() {
+        return movies;
+    }
+
+    public void addMovie(Movie movie) {
+        this.movies.put(id, movie);
     }
 
         

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Movie {
 
-	Map<Integer, Person> people;
+	Map<Long, Person> people;
 	private long id;
 	private String name;
 	private String producer;
@@ -38,6 +38,10 @@ public class Movie {
 
     public void setProducer(String producer) {
         this.producer = producer;
+    }
+
+    public Map<Long, Person> getPeople() {
+        return people;
     }
         
         
