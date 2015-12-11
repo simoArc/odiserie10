@@ -46,7 +46,6 @@ public class Movie {
     
     public int getcountPeople(){
         return getPeople().size();
-    }       
-        
+    }              
 
 }

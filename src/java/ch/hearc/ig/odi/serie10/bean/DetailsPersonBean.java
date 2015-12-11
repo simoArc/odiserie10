@@ -5,9 +5,12 @@
  */
 package ch.hearc.ig.odi.serie10.bean;
 
+import ch.hearc.ig.odi.serie10.business.Movie;
 import ch.hearc.ig.odi.serie10.business.Person;
 import ch.hearc.ig.odi.serie10.service.Services;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,23 +21,32 @@ import javax.inject.Named;
  */
 @Named(value = "detailsPersonBean")
 @SessionScoped
-public class DetailsPersonBean implements Serializable{
-     
+public class DetailsPersonBean implements Serializable {
+
     private Person person;
-    
-    @Inject Services services;
+
+    @Inject
+    Services services;
+
     public DetailsPersonBean() {
     }
-    
+
     //permet de selectionner les règles de navigation faces-config
-     public String showPerson(Person pers){
-        if(pers != null){
+    public String showPerson(Person pers) {
+        if (pers != null) {
             person = pers;
             return "show";
-        }else{
+        } else {
             person = null;
             return "error";
         }
+    }
+
+    public List<Movie> getMovies() {
+        if (person == null) {
+            return new ArrayList();
+        }
+        return new ArrayList(person.getMovies().values());
     }
 
     public Person getPerson() {
@@ -44,7 +56,5 @@ public class DetailsPersonBean implements Serializable{
     public void setPerson(Person person) {
         this.person = person;
     }
-     
-     
-     
+
 }
