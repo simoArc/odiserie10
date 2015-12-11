@@ -45,9 +45,14 @@ public class Person {
     }
 
     //ajout du film à la personne
-
+    //association bidirectionnelle
     public void addMovie(Movie movie) {
-        this.movies.put(id, movie);
+        if (!movies.containsKey(movie.getId())) {
+            //film dans la liste de la personne
+            movies.put(movie.getId(), movie);
+            //ajout de la personne dans la liste du film
+            movie.getPeople().put(id, this);
+        }
     }
 
     //nombre de films par personne

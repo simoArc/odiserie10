@@ -14,25 +14,25 @@
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.id']}" />
                     </f:facet>
-                    <h:commandLink value="#{person.id}" />
+                    #{person.id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.fn']}" />
                     </f:facet>
-                    <h:commandLink  value="#{person.firstName}"/>
+                    <h:commandLink  value="#{person.firstName}" action="#{detailsPersonBean.showPerson(person)}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.ln']}" />
                     </f:facet>
-                    <h:commandLink  value="#{person.lastName}" />
+                   #{person.lastName}
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.films']}" />
                     </f:facet>
-                    <h:commandLink  value="#{person.countFilms}" />
+                    #{person.countFilms}
                 </h:column>
             </h:dataTable>
         </h:form>
