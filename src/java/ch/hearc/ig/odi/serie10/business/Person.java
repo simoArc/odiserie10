@@ -43,10 +43,13 @@ public class Person {
     public Map<Long, Movie> getMovies() {
         return movies;
     }
-
+    //ajout du film à la personne
     public void addMovie(Movie movie) {
         this.movies.put(id, movie);
     }
-
+    //nombre de films par personne
+    public int countFilms(){
+        return this.movies.size();
+    }
         
 }

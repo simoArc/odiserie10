@@ -9,29 +9,32 @@
     <h:body>
         <h:form>
 
-            <h:dataTable var="customer" value="#{customersBean.customers}">
+            <h:dataTable var="person" value="#{listPeopleBean.people}">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msg['customer.number']}" />
+                        <h:outputText value="#{msg['person.id']}" />
                     </f:facet>
-                    <h:commandLink value="#{customer.number}" action="#{customerDetailsBean.showCustomer(customer)}" />
+                    <h:commandLink value="#{person.id}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msg['customer.firstName']}" />
+                        <h:outputText value="#{msg['person.fn']}" />
                     </f:facet>
-                    <h:commandLink  value="#{customer.firstName}" action="#{customerDetailsBean.showCustomer(customer)}" />
+                    <h:commandLink  value="#{person.firstName}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msg['customer.lastName']}" />
+                        <h:outputText value="#{msg['person.ln']}" />
                     </f:facet>
-                    <h:commandLink  value="#{customer.lastName}" action="#{customerDetailsBean.showCustomer(customer)}" />
+                    <h:commandLink  value="#{person.lastName}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.films']}" />
+                    </f:facet>
+                    <h:commandLink  value="#{'person.countFilms'}" />
                 </h:column>
             </h:dataTable>
-
-            <br/>
-            <h:commandButton  value="#{msg['button.label.add']}" action="createCustomer" />
         </h:form>
     </h:body>
 </html>
