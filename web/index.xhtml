@@ -8,7 +8,7 @@
     </h:head>
     <h:body>
         <h:form>
-
+            <h1>#{msg['person.list']}</h1>
             <h:dataTable var="person" value="#{listPeopleBean.people}">
                 <h:column>
                     <f:facet name="header">
@@ -32,10 +32,41 @@
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.films']}" />
                     </f:facet>
-                    <h:commandLink  value="#{'person.countFilms'}" />
+                    <h:commandLink  value="#{person.countFilms}" />
                 </h:column>
             </h:dataTable>
         </h:form>
+        
+        <h:form>
+            <h1>#{msg['film.list']}</h1>
+            <h:dataTable var="film" value="#{listPeopleBean.movies}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['film.id']}" />
+                    </f:facet>
+                    <h:commandLink value="#{film.id}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['film.title']}" />
+                    </f:facet>
+                    <h:commandLink  value="#{film.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['film.prod']}" />
+                    </f:facet>
+                    <h:commandLink  value="#{film.producer}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['film.pers']}" />
+                    </f:facet>
+                    <h:commandLink  value="#{film.countPeople}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>       
+        
     </h:body>
 </html>
 

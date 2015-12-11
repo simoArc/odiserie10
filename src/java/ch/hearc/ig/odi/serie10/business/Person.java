@@ -4,10 +4,10 @@ import java.util.*;
 
 public class Person {
 
-	Map<Long, Movie> movies;
-	private long id;
-	private String firstName;
-	private String lastName;
+    Map<Long, Movie> movies;
+    private long id;
+    private String firstName;
+    private String lastName;
 
     public Person(long id, String firstName, String lastName) {
         this.id = id;
@@ -43,13 +43,16 @@ public class Person {
     public Map<Long, Movie> getMovies() {
         return movies;
     }
+
     //ajout du film à la personne
+
     public void addMovie(Movie movie) {
         this.movies.put(id, movie);
     }
+
     //nombre de films par personne
-    public int countFilms(){
-        return this.movies.size();
+    public int getcountFilms() {
+        return getMovies().size();
     }
-        
+
 }

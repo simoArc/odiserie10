@@ -43,6 +43,10 @@ public class Movie {
     public Map<Long, Person> getPeople() {
         return people;
     }
+    
+    public int getcountPeople(){
+        return getPeople().size();
+    }
         
         
 

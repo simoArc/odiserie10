@@ -5,6 +5,7 @@
  */
 package ch.hearc.ig.odi.serie10.bean;
 
+import ch.hearc.ig.odi.serie10.business.Movie;
 import ch.hearc.ig.odi.serie10.business.Person;
 import ch.hearc.ig.odi.serie10.service.Services;
 import java.io.Serializable;
@@ -24,10 +25,15 @@ public class ListPeopleBean implements Serializable{
     @Inject Services services;
     public ListPeopleBean() {
     }
-    
+    //liste des personnes
     public List<Person> getPeople(){
         return services.getPeopleList();
     }    
+    
+    //liste de films
+    public List<Movie>getMovies(){
+        return services.getMoviesList();
+    }
     
     
     
