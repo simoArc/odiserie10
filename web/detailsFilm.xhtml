@@ -37,7 +37,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msg['person.fn']}" />
                     </f:facet>
-                    <h:commandLink  value="#{person.firstName}"/>
+                    <h:commandLink  value="#{person.firstName}" action="#{detailsPersonBean.showPerson(person)}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -46,8 +46,9 @@
                     #{person.lastName}
                 </h:column>
             </h:dataTable>
+            <br/><br/>
+            <h:commandButton value="#{msg['button.home']}" action="listPeopleFilms.xhtml" />
         </h:form>       
-
     </h:body>
 </html>
 

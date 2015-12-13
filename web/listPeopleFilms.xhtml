@@ -44,25 +44,25 @@
                     <f:facet name="header">
                         <h:outputText value="#{msg['film.id']}" />
                     </f:facet>
-                    <h:commandLink value="#{film.id}" />
+                    #{film.id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msg['film.title']}" />
                     </f:facet>
-                    <h:commandLink  value="#{film.name}"/>
+                    <h:commandLink  value="#{film.name}" action="#{detailsFilmBean.showMovie(film)}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msg['film.prod']}" />
                     </f:facet>
-                    <h:commandLink  value="#{film.producer}" />
+                   #{film.producer}
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msg['film.pers']}" />
                     </f:facet>
-                    <h:commandLink  value="#{film.countPeople}" />
+                    #{film.countPeople}
                 </h:column>
             </h:dataTable>
         </h:form>       

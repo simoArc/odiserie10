@@ -43,4 +43,32 @@
             <to-view-id>/detailsPerson.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/detailsFilm.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{detailsPersonBean.showPerson(person)}</from-action>          
+            <from-outcome>show</from-outcome>
+            <to-view-id>/detailsPerson.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{detailsPersonBean.showPerson(person)}</from-action>          
+            <from-outcome>error</from-outcome>
+            <to-view-id>/detailsFilm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/listPeopleFilms.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{detailsFilmBean.showMovie(film)}</from-action>          
+            <from-outcome>show</from-outcome>
+            <to-view-id>/detailsFilm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{detailsFilmBean.showMovie(film)}</from-action>          
+            <from-outcome>error</from-outcome>
+            <to-view-id>/listPeopleFilms.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
