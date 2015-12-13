@@ -37,7 +37,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msg['film.title']}" />
                     </f:facet>
-                    <h:commandLink  value="#{film.name}"/>
+                    <h:commandLink  value="#{film.name}" action="#{detailsFilmBean.showMovie(film)}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">

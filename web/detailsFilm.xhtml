@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg['film.details']}</title>
+    </h:head>
+    <h:body>
+        <h2>
+            <h:outputText value="#{msg['film.details']}" />
+        </h2>
+
+        <h:panelGrid border="0" columns="2">
+            <h:outputLabel value="#{msg['film.id']} : " />
+            <h:outputText value="#{detailsFilmBean.movie.id}" />
+            <h:outputLabel value="#{msg['film.title']} : " />
+            <h:outputText value="#{detailsFilmBean.movie.name}" />
+            <h:outputLabel value="#{msg['film.prod']} : " />
+            <h:outputText value="#{detailsFilmBean.movie.producer}" />
+        </h:panelGrid>
+
+        <h3>
+            <h:outputText value="#{msg['person.list']}" />
+        </h3>
+
+        <h:form>
+            <h1>#{msg['person.list']}</h1>
+            <h:dataTable var="person" value="#{detailsFilmBean.people}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.id']}" />
+                    </f:facet>
+                    #{person.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.fn']}" />
+                    </f:facet>
+                    <h:commandLink  value="#{person.firstName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['person.ln']}" />
+                    </f:facet>
+                    #{person.lastName}
+                </h:column>
+            </h:dataTable>
+        </h:form>       
+
+    </h:body>
+</html>
+
