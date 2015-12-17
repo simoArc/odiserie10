@@ -101,5 +101,9 @@ public class Services implements Serializable{
     public void newPerson(long id, String fn, String ln){
         people.put(71L, new Person(id, fn, ln));
     }
+
+    public void newMovie(long id, String title, String producer) {
+        movies.put(101L, new Movie(id, title, producer));
+    }
     
 }
