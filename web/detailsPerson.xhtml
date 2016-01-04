@@ -2,53 +2,57 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>#{msg['person.details']}</title>
     </h:head>
     <h:body>
-        <h2>
-            <h:outputText value="#{msg['person.details']}" />
-        </h2>
+        <ui:composition template="/templates/default/main.xhtml">
+            <ui:define name="top"><h2>
+                    <h:outputText value="#{msg['person.details']}" />
+                </h2></ui:define>
+            <ui:define name="content">
+                <h:panelGrid border="0" columns="2">
+                    <h:outputLabel value="#{msg['person.id']} : " />
+                    <h:outputText value="#{detailsPersonBean.person.id}" />
+                    <h:outputLabel value="#{msg['person.fn']} : " />
+                    <h:outputText value="#{detailsPersonBean.person.firstName}" />
+                    <h:outputLabel value="#{msg['person.ln']} : " />
+                    <h:outputText value="#{detailsPersonBean.person.lastName}" />
+                </h:panelGrid>
 
-        <h:panelGrid border="0" columns="2">
-            <h:outputLabel value="#{msg['person.id']} : " />
-            <h:outputText value="#{detailsPersonBean.person.id}" />
-            <h:outputLabel value="#{msg['person.fn']} : " />
-            <h:outputText value="#{detailsPersonBean.person.firstName}" />
-            <h:outputLabel value="#{msg['person.ln']} : " />
-            <h:outputText value="#{detailsPersonBean.person.lastName}" />
-        </h:panelGrid>
+                <h3>
+                    <h:outputText value="#{msg['film.list']}" />
+                </h3>
 
-        <h3>
-            <h:outputText value="#{msg['film.list']}" />
-        </h3>
-
-        <h:form>
-            <h1>#{msg['film.list']}</h1>
-            <h:dataTable var="film" value="#{detailsPersonBean.movies}">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msg['film.id']}" />
-                    </f:facet>
-                    #{film.id}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msg['film.title']}" />
-                    </f:facet>
-                    <h:commandLink  value="#{film.name}" action="#{detailsFilmBean.showMovie(film)}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msg['film.prod']}" />
-                    </f:facet>
-                    #{film.producer}
-                </h:column>
-            </h:dataTable>
-            <br/><br/>
-            <h:commandButton value="#{msg['button.home']}" action="listPeopleFilms.xhtml" />
-        </h:form>       
+                <h:form>
+                    <h1>#{msg['film.list']}</h1>
+                    <h:dataTable var="film" value="#{detailsPersonBean.movies}">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{msg['film.id']}" />
+                            </f:facet>
+                            #{film.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{msg['film.title']}" />
+                            </f:facet>
+                            <h:commandLink  value="#{film.name}" action="#{detailsFilmBean.showMovie(film)}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{msg['film.prod']}" />
+                            </f:facet>
+                            #{film.producer}
+                        </h:column>
+                    </h:dataTable>
+                    <br/><br/>
+                    <h:commandButton value="#{msg['button.home']}" action="listPeopleFilms.xhtml" />
+                </h:form>   
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 
