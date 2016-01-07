@@ -24,6 +24,8 @@ import javax.inject.Named;
 public class DetailsPersonBean implements Serializable {
 
     private Person person;
+    Services listMovieBean = new Services();
+    ArrayList lovMovie = new ArrayList();
 
     @Inject
     Services services;
@@ -40,6 +42,13 @@ public class DetailsPersonBean implements Serializable {
             person = null;
             return "error";
         }
+    }
+    
+    public List<Movie> getLovMovie(){     
+        List<Movie> movieBeanList = services.getMoviesList();
+        movieBeanList.removeAll(person.getMovies().values());
+        return movieBeanList;
+        
     }
 
     public List<Movie> getMovies() {

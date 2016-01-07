@@ -48,9 +48,16 @@
                             #{film.producer}
                         </h:column>
                     </h:dataTable>
+                    <h:selectOneMenu id="lovMovies"
+                                     value="#{detailsPersonBean.person.movies}">
+                        <f:converter binding="#{movieConverter}"/>
+                        <f:selectItems value="#{detailsPersonBean.lovMovie}"
+                                       var="oneMovie"
+                                       itemLabel="#{oneMovie.name}"/>
+                    </h:selectOneMenu>
                     <br/><br/>
                     <h:commandButton value="#{msg['button.home']}" action="listPeopleFilms.xhtml" />
-                </h:form>   
+                </h:form>  
             </ui:define>
         </ui:composition>
     </h:body>

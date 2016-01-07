@@ -98,6 +98,10 @@ public class Services implements Serializable{
         return new ArrayList(movies.values());
     }
     
+    public Movie getMovieById(int id){
+        return movies.get(id);
+    }
+    
     public void newPerson(long id, String fn, String ln){
         people.put(71L, new Person(id, fn, ln));
     }
